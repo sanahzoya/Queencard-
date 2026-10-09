@@ -1,0 +1,27 @@
+import pygame
+from pygame import mixer
+
+# Initialize modules
+pygame.init()
+mixer.init()
+screen = pygame.display.set_mode((800, 600))
+
+# 1. Load background music and play on a loop (-1)
+mixer.music.load("background.wav")
+mixer.music.play(-1)
+
+# 2. Load background image
+background = pygame.image.load("background.png")
+
+# Main game loop snippet
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # 3. Draw background at top-left corner
+    screen.blit(background, (0, 0))
+    pygame.display.update()
+
+pygame.quit()
